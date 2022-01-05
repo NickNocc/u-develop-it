@@ -69,7 +69,7 @@ app.delete('/api/candidate/:id', (req, res) => {
     });
 });
 
-app.post('api/candidate', ({ body }, res) => {
+app.post('/api/candidate', ({ body }, res) => {
     const errors = inputCheck(body, 'first_name', 'last_name', 'industry_connected');
     if (errors) {
         res.json(400).json({ error: errors });
