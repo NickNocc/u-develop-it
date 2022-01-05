@@ -1,4 +1,5 @@
 const express = require('express');
+const { result } = require('lodash');
 const mysql = require('mysql2');
 
 const PORT = process.env.PORT || 3001;
@@ -28,11 +29,22 @@ const db = mysql.createConnection(
 //     console.log(row);
 // });
 
-db.query(`DELETE FROM candidates WHERE id = ?`, 1, (err, results) => {
+// db.query(`DELETE FROM candidates WHERE id = ?`, 1, (err, results) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(results);
+// })
+
+const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
+                VALUES (?,?,?,?)`;
+const params = [1, `Ronald`, `Firbank`, 1];
+
+db.query(sql, params, (err, result) => {
     if (err) {
         console.log(err);
     }
-    console.log(results);
+    console.log(result);
 })
 
 app.use((req, res) => {
