@@ -20,7 +20,7 @@ router.post('/vote', ({ body }, res) => {
         return;
       }
       res.json({
-        message: 'successssss',
+        message: 'successs',
         data: body,
         changes: result.affectedRows
       });
