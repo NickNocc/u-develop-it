@@ -10,7 +10,7 @@ router.post('/vote', ({ body }, res) => {
       res.status(400).json({ error: errors });
       return;
     }
-  
+  // sdadsfsdfsd
     const sql = `INSERT INTO votes (voter_id, candidate_id) VALUES (?,?)`;
     const params = [body.voter_id, body.candidate_id];
   
